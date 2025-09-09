@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+body { font-family:'Roboto',sans-serif; background:#f4f7f9; margin:0; padding:20px; display:flex; justify-content:center; }
+.container { background:white; padding:30px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.1); max-width:400px; width:100%; text-align:center; }
+h1 { color:#007BFF; }
+input, button { width:100%; padding:10px; margin:10px 0; border-radius:8px; border:1px solid #ccc; font-size:16px; }
+button { background:#007BFF; color:white; border:none; cursor:pointer; }
+button:hover { background:#0056b3; }
+#result { margin-top:15px; font-weight:bold; font-size:18px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <i class="fas fa-weight" style="font-size:50px;color:#007BFF;"></i>
+  <h1>BMI Calculator</h1>
+  <input type="number" id="weight" placeholder="Weight (kg)">
+  <input type="number" id="height" placeholder="Height (cm)">
+  <button onclick="calculateBMI()">Calculate BMI</button>
+  <div id="result"></div>
+</div>
+<script>
+function calculateBMI(){
+let w=parseFloat(document.getElementById("weight").value);
+let h=parseFloat(document.getElementById("height").value)/100;
+if(isNaN(w)||isNaN(h)){alert("Enter valid values"); return;}
+let bmi=w/(h*h);
+let status=bmi<18.5?"Underweight":bmi<25?"Normal":bmi<30?"Overweight":"Obese";
+document.getElementById("result").innerText=`BMI: ${bmi.toFixed(2)} (${status})`;
+}
+</script>
+</body>
+</html>
