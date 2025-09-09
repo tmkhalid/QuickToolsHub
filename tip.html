@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tip Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+body{font-family:'Roboto',sans-serif;background:#f4f7f9;margin:0;padding:20px;display:flex;justify-content:center;}
+.container{background:white;padding:30px;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,0.1);max-width:400px;width:100%;text-align:center;}
+h1{color:#007BFF;}
+input,button{width:100%;padding:10px;margin:10px 0;border-radius:8px;border:1px solid #ccc;font-size:16px;}
+button{background:#007BFF;color:white;border:none;cursor:pointer;}
+button:hover{background:#0056b3;}
+#result{margin-top:15px;font-weight:bold;font-size:18px;}
+</style>
+</head>
+<body>
+<div class="container">
+<i class="fas fa-utensils" style="font-size:50px;color:#007BFF;"></i>
+<h1>Tip Calculator</h1>
+<input type="number" id="bill" placeholder="Bill Amount">
+<input type="number" id="tipPercent" placeholder="Tip %">
+<button onclick="calculateTip()">Calculate Tip</button>
+<div id="result"></div>
+</div>
+<script>
+function calculateTip(){
+let b=parseFloat(document.getElementById("bill").value);
+let p=parseFloat(document.getElementById("tipPercent").value);
+if(isNaN(b)||isNaN(p)){alert("Enter valid values"); return;}
+let tip=b*(p/100);
+document.getElementById("result").innerText=`Tip: ${tip.toFixed(2)}, Total: ${(b+tip).toFixed(2)}`;
+}
+</script>
+</body>
+</html>
