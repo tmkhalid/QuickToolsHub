@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Quote Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+body{font-family:'Roboto',sans-serif;background:#f4f7f9;margin:0;padding:20px;display:flex;justify-content:center;}
+.container{background:white;padding:30px;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,0.1);max-width:500px;width:100%;text-align:center;}
+h1{color:#007BFF;}
+button{width:100%;padding:10px;margin:10px 0;border-radius:8px;border:none;font-size:16px;background:#007BFF;color:white;cursor:pointer;}
+button:hover{background:#0056b3;}
+#quote{margin-top:20px;font-size:20px;font-style:italic;}
+</style>
+</head>
+<body>
+<div class="container">
+<i class="fas fa-quote-left" style="font-size:50px;color:#007BFF;"></i>
+<h1>Random Quote Generator</h1>
+<button onclick="newQuote()">New Quote</button>
+<div id="quote"></div>
+</div>
+<script>
+const quotes=[
+"Believe you can and you're halfway there.",
+"Stay hungry, stay foolish.",
+"The best way to predict the future is to invent it.",
+"Do one thing every day that scares you.",
+"Dream big and dare to fail."
+];
+function newQuote(){
+const q=quotes[Math.floor(Math.random()*quotes.length)];
+document.getElementById("quote").innerText=q;
+}
+newQuote();
+</script>
+</body>
+</html>
