@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temperature Converter</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+body{font-family:'Roboto',sans-serif;background:#f4f7f9;margin:0;padding:20px;display:flex;justify-content:center;}
+.container{background:white;padding:30px;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,0.1);max-width:400px;width:100%;text-align:center;}
+h1{color:#007BFF;}
+input,select,button{width:100%;padding:10px;margin:10px 0;border-radius:8px;border:1px solid #ccc;font-size:16px;}
+button{background:#007BFF;color:white;border:none;cursor:pointer;}
+button:hover{background:#0056b3;}
+#result{margin-top:15px;font-weight:bold;font-size:18px;}
+</style>
+</head>
+<body>
+<div class="container">
+<i class="fas fa-thermometer-half" style="font-size:50px;color:#007BFF;"></i>
+<h1>Temperature Converter</h1>
+<input type="number" id="temp" placeholder="Temperature">
+<select id="scale">
+<option value="C">Celsius → Fahrenheit</option>
+<option value="F">Fahrenheit → Celsius</option>
+</select>
+<button onclick="convertTemp()">Convert</button>
+<div id="result"></div>
+</div>
+<script>
+function convertTemp(){
+const t=parseFloat(document.getElementById("temp").value);
+const s=document.getElementById("scale").value;
+if(isNaN(t)){alert("Enter valid temperature"); return;}
+const r=s==="C"?(t*9/5)+32:(t-32)*5/9;
+document.getElementById("result").innerText=`Result: ${r.toFixed(2)} ${s==="C"?"°F":"°C"}`;
+}
+</script>
+</body>
+</html>
