@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit Converter</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+body{font-family:'Roboto',sans-serif;background:#f4f7f9;margin:0;padding:20px;display:flex;justify-content:center;}
+.container{background:white;padding:30px;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,0.1);max-width:400px;width:100%;text-align:center;}
+h1{color:#007BFF;}
+input,select,button{width:100%;padding:10px;margin:10px 0;border-radius:8px;border:1px solid #ccc;font-size:16px;}
+button{background:#007BFF;color:white;border:none;cursor:pointer;}
+button:hover{background:#0056b3;}
+#result{margin-top:15px;font-weight:bold;font-size:18px;}
+</style>
+</head>
+<body>
+<div class="container">
+<i class="fas fa-ruler" style="font-size:50px;color:#007BFF;"></i>
+<h1>Unit Converter</h1>
+<input type="number" id="value" placeholder="Value">
+<select id="type">
+<option value="m-ft">Meters → Feet</option>
+<option value="ft-m">Feet → Meters</option>
+<option value="kg-lb">Kg → Pounds</option>
+<option value="lb-kg">Pounds → Kg</option>
+</select>
+<button onclick="convertUnit()">Convert</button>
+<div id="result"></div>
+</div>
+<script>
+function convertUnit(){
+let v=parseFloat(document.getElementById("value").value);
+const t=document.getElementById("type").value;
+if(isNaN(v)){alert("Enter valid value"); return;}
+let r;
+switch(t){
+case "m-ft":r=v*3.28084;break;
+case "ft-m":r=v/3.28084;break;
+case "kg-lb":r=v*2.20462;break;
+case "lb-kg":r=v/2.20462;break;
+}
+document.getElementById("result").innerText=`Result: ${r.toFixed(2)}`;
+}
+</script>
+</body>
+</html>
